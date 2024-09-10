@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mxgraph</groupId>
-  <artifactId>jgraphx</artifactId>
+  <artifactId>jgraphx-lite</artifactId>
   <version>4.2.2</version>
   <packaging>jar</packaging>
 
@@ -10,8 +10,8 @@
 
   <properties>
   
-   <maven.compiler.source>1.5</maven.compiler.source>
-   <maven.compiler.target>1.5</maven.compiler.target>
+   <maven.compiler.source>1.8</maven.compiler.source>
+   <maven.compiler.target>1.8</maven.compiler.target>
    <maven.compiler.compilerVersion>1.5</maven.compiler.compilerVersion>
    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -19,16 +19,40 @@
   </dependencies>
     
   <build>
-			<sourceDirectory>src</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<excludes>
-					<exclude>**.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                    <directory>src</directory>
+                    <excludes>
+                            <exclude>**.java</exclude>
+                    </excludes>
+            </resource>
+            <resource>
+                    <directory>examples</directory>
+                    <excludes>
+                            <exclude>**.java</exclude>
+                    </excludes>
+            </resource>
+        </resources>
   	<plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <executions>
+                        <execution>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>examples</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-jar-plugin</artifactId>

@@ -2003,6 +2003,10 @@ public class mxUtils
 	 */
 	public static BufferedImage loadImage(String url)
 	{
+            if (!url.startsWith("file:") && !url.startsWith("/")) {
+                throw new RuntimeException("Investigate URL! - " + url);
+            }
+            
 		BufferedImage img = null;
 
 		if (url != null)

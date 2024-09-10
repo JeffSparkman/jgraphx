@@ -276,6 +276,10 @@ public class mxSvgCanvas extends mxBasicCanvas
 	 */
 	protected InputStream getResource(String src)
 	{
+            if (!src.startsWith("file:") && !src.startsWith("/")) {
+                throw new RuntimeException("Investigate URL!");
+            }
+            
 		InputStream stream = null;
 
 		try
@@ -296,6 +300,10 @@ public class mxSvgCanvas extends mxBasicCanvas
 	 */
 	protected String createDataUrl(String src) throws IOException
 	{
+            if (!src.startsWith("file:") && !src.startsWith("/")) {
+                throw new RuntimeException("Investigate URL!");
+            }
+            
 		String result = null;
 		InputStream inputStream = isImageResource(src) ? getResource(src) : null;
 

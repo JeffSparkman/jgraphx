@@ -4,7 +4,7 @@ package com.mxgraph.examples.swing;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.net.URL;
+//import java.net.URL;
 import java.text.NumberFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +52,7 @@ public class GraphEditor extends BasicGraphEditor
 	 * Holds the URL for the icon to be used as a handle for creating new
 	 * connections. This is currently unused.
 	 */
-	public static URL url = null;
+//	public static URL url = null;
 
 	//GraphEditor.class.getResource("/com/mxgraph/examples/swing/images/connector.gif");
 
